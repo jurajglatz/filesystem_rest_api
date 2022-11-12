@@ -5,8 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
 
+import static com.jg.filesystem.DirectoryOperations.findPattern;
 import static com.jg.filesystem.FileOperations.createFile;
 import static com.jg.filesystem.FileOperations.deleteFile;
 
@@ -35,6 +39,15 @@ public class FileOperationsController {
     @GetMapping("/move_file")
     public void moveFile(@RequestParam(value = "src_path") @NonNull String srcPath, @RequestParam(value = "dest_path") @NonNull String destPath) throws IOException {
         FileOperations.moveFile(srcPath, destPath);
+    }
 
+    @GetMapping("/read_file")
+    public ArrayList<String> readFile(@RequestParam(value = "absolute_path") @NonNull String absolutePath) {
+        return FileOperations.getContent(absolutePath);
+    }
+
+    @GetMapping("/find_pattern")
+    public Map<File, Integer> findPatternInFiles(@RequestParam(value = "directory_path") @NonNull String absolutePath, @RequestParam(value = "pattern") @NonNull String pattern) {
+        return findPattern(absolutePath, pattern);
     }
 }
