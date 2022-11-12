@@ -1,0 +1,199 @@
+openapi: "3.0.3"
+info:
+  title: "file_system API"
+  description: "file_system API"
+  version: "1.0.0"
+servers:
+  - url: "http://localhost:8080"
+paths:
+  /create_dir:
+    get:
+      summary: "GET create_dir"
+      operationId: "createDir"
+      parameters:
+        - name: "absolute_path"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+        - name: "directory_name"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /delete_dir:
+    get:
+      summary: "GET delete_dir"
+      operationId: "deleteDir"
+      parameters:
+      - name: "absolute_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /create_file:
+    get:
+      summary: "GET create_file"
+      operationId: "createFile"
+      parameters:
+      - name: "absolute_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      - name: "file_name"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      - name: "file_extension"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /delete_file:
+    get:
+      summary: "GET delete_file"
+      operationId: "deleteFile"
+      parameters:
+      - name: "absolute_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /copy_file:
+    get:
+      summary: "GET copy_file"
+      operationId: "copyFile"
+      parameters:
+      - name: "src_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      - name: "dest_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /move_file:
+    get:
+      summary: "GET move_file"
+      operationId: "moveFile"
+      parameters:
+      - name: "src_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      - name: "dest_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /list_dir_content:
+    get:
+      summary: "GET list_dir_content"
+      operationId: "listDirectoryContent"
+      parameters:
+      - name: "absolute_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /read_file:
+    get:
+      summary: "GET read_file"
+      operationId: "readFile"
+      parameters:
+      - name: "absolute_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /encrypt:
+    get:
+      summary: "GET encrypt"
+      operationId: "encrypt"
+      parameters:
+      - name: "absolute_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      - name: "key"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /decrypt:
+    get:
+      summary: "GET decrypt"
+      operationId: "decrypt"
+      parameters:
+      - name: "absolute_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      - name: "key"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /find_pattern:
+    get:
+      summary: "GET find_pattern"
+      operationId: "findPatternInFiles"
+      parameters:
+      - name: "directory_path"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      - name: "pattern"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+          
+          
+          
+          
+          
+          
+          
+          
